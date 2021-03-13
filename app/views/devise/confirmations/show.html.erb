@@ -1,0 +1,24 @@
+<h2>Account Activation<% if resource.try(:user_name) %> for <%= resource.user_name %><% end %></h2>
+
+<%= simple_form_for(resource, as: resource_name, url: update_user_confirmation_path, html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-inputs">
+    <% if @requires_password %>
+      <%= f.input :password,
+                  required: true,
+                  autofocus: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+    <% end %>
+
+    <%= hidden_field_tag :confirmation_token,@confirmation_token %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Activate" %>
+  </div>
+<% end %>
