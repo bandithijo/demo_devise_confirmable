@@ -13,7 +13,9 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
+    <% if resource.pending_reconfirmation? %>
+      <%= f.button :submit, "Resend confirmation instructions" %>
+    <% end %>
   </div>
 <% end %>
 
