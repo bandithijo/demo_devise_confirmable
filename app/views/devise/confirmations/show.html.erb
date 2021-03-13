@@ -1,7 +1,7 @@
 <h2>Account Activation<% if resource.try(:user_name) %> for <%= resource.user_name %><% end %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: update_user_confirmation_path, html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="form-inputs">
     <% if @requires_password %>
