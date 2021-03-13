@@ -4,8 +4,8 @@ User registration only with name & email, then input password after email confir
 
 # Gems
 
-1. Devise
-2. Simple Form
+1. [Devise](https://github.com/heartcombo/devise)
+2. [Simple Form](https://github.com/heartcombo/simple_form)
 
 # Demo
 
